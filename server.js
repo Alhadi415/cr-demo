@@ -5,7 +5,8 @@ import OpenAI from "openai";
 import dotenv from "dotenv";
 dotenv.config();
 
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 10000;
+const HOST = "0.0.0.0";
 const DOMAIN = process.env.NGROK_URL;
 const WS_URL = `wss://${DOMAIN}/ws`;
 const WELCOME_GREETING =
@@ -83,9 +84,10 @@ fastify.register(async function (fastify) {
 });
 
 try {
-  fastify.listen({ port: PORT });
+  fastify.listen({ port: PORT,host: HOST });
   console.log(
-    `Server running at http://localhost:${PORT} and wss://${DOMAIN}/ws`
+      console.log(`✅ Server running at http://${HOST}:${PORT} and wss://${DOMAIN}/ws`);
+
   );
 } catch (err) {
   fastify.log.error(err);
