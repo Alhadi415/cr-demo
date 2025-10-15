@@ -35,7 +35,7 @@ fastify.all("/twiml", async (request, reply) => {
     `<?xml version="1.0" encoding="UTF-8"?>
     <Response>
       <Connect>
-        <ConversationRelay url="${WS_URL}" welcomeGreeting="${WELCOME_GREETING}" />
+        <ConversationRelay url="${WS_URL}" ttsProvider="ElevenLabs" voice="ZF6FPAbjXT4488VcRRnw-flash_v2_5-1.2_1.0_1.0" elevenlabsTextNormalization="on" welcomeGreeting="${WELCOME_GREETING}" />
       </Connect>
     </Response>`
   );
